@@ -1,0 +1,40 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-8">
+      <div class="row gy-2">
+        <div class="col-4" *ngFor="let product of prodArr">
+          <div class="card shadow-lg" style="width: 250px">
+            <img
+              src="{{ product.thumbnail }}"
+              class="card-img-top object-fit-cover"
+            />
+            <div class="card-body">
+              <h5 class="card-title">{{ product.title }}</h5>
+              <h6 class="card-title fs-6 text-secondary">
+                {{ product.brand }}
+              </h6>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <p>{{ product.price }} €</p>
+              <a
+                href="#"
+                class="btn text-light mx-2"
+                style="background-color: magenta"
+                ><i
+                  class="bi bi-heart"
+                  (click)="addToFavorites(product, $event)"
+                ></i
+              ></a>
+              <a href="#" class="btn btn-primary"><i class="bi bi-cart"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <app-cart></app-cart>
+    </div>
+  </div>
+</div>
