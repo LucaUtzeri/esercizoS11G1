@@ -11,12 +11,15 @@ export class ServiceService {
 
 
   url = environment.apiUrl
+  favoritesArr: Products[] = [];
 
   constructor(private http: HttpClient) { }
 
   getProducts() { return this.http.get<{ products: Products[] }>(this.url).pipe(map(prods => prods.products)) }
 
-  addToFav() {
+  addToFav(product: Products) {
+    this.favoritesArr.push(product);
+    return console.log(this.favoritesArr);
 
   }
 
